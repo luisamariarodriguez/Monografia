@@ -38,11 +38,16 @@ A continuación describimos brevemente la solución implementada por medio de un
 #### **9. Visualización de la primera imagen en su representación numérica:**
    - Se visualiza la representación numérica de la primera imagen normalizada.
 
-### Observaciones y Siguientes Pasos:
+### Observaciones y siguientes pasos:
 - Se realiza un ajuste de color (corrección gamma, ajuste de contraste) para mejorar las condiciones de las imágenes.
 - Se normalizan los píxeles de 100 imágenes y se guardan como archivos CSV.
 - Se convierten las imágenes normalizadas en un arreglo de NumPy para su procesamiento posterior.
 
-### Siguientes Pasos Sugeridos:
+### Siguientes pasos sugeridos:
 - Implementar la normalización de imágenes de manera paralela en el clúster de Databricks para manejar un conjunto más amplio de datos.
 - Utilizar el conjunto de datos preprocesado para entrenar modelos de aprendizaje automático en pasos posteriores del proyecto.
+
+### Entregables:
+- Origen de datos: Si bien el origen de los datos provienen de un contenedor en Azure Data Lake Storage y este ha sido la fuente principal durante el desarrollo en Databricks, hemos decidido facilitar el acceso a estas imágenes adicionalmente almacenándolas en el directorio Monografia/Origen de datos. Esta medida se toma con el objetivo de proporcionar una referencia fácil y accesible para la consulta directa de las imágenes.
+- Dataset final: Similarmente, el destino de nuestro dataset final se encuentra ubicado sobre un contenedor de Azure Data Lake Storage, sin embargo, decidimos facilitar su acceso y exploración por medio del directorio Monografia/Dataset final.
+- Solución: El código que permite realizar el preprocesamiento de las imágenes se encuentra disponible en el archivo Monografia/Databricks/Pixai/Exploracion_datos.py. Además, para mayor conveniencia de los usuarios interesados, se ofrece acceso directo al workspace de Databricks donde se implementó la solución. Esto facilitará la consulta, ejecución y revisión del código en caso de ser necesario.
