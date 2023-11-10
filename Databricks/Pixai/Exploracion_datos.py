@@ -182,14 +182,14 @@ for image_name in files:
 # COMMAND ----------
 
 # MAGIC %md
-# MAGIC El siguiente paso consiste en normalizar los pixeles de las imagenes de manera que la representación de colores como valores queden entre 0 y 1, esto ayuda a que el procesamiento sea menos costoso. Sin embargo, debido a la dimensión y características de las imágenes, esta transformación sigue siendo exigente a nivel computacional por lo que decidimos aplicar solo a 250 imágenes aleatorias.
+# MAGIC El siguiente paso consiste en normalizar los pixeles de las imagenes de manera que la representación de colores como valores queden entre 0 y 1, esto ayuda a que el procesamiento sea menos costoso. Sin embargo, debido a la dimensión y características de las imágenes, esta transformación sigue siendo exigente a nivel computacional por lo que decidimos aplicar solo a 100 imágenes aleatorias.
 # MAGIC
 # MAGIC **Observación:** Uno de nuestros próximos pasos es lograr paralelizar la operación de normalización de imágenes sobre el clúster de Databricks, de manera que podamos contar con una muestra más amplia de imágenes para los pasos posteriores.
 
 # COMMAND ----------
 
 # Elegir aleatoriamente imágenes para normalizar
-random_images = random.sample(files, 250)
+random_images = random.sample(files, 100)
 
 # COMMAND ----------
 
@@ -216,7 +216,7 @@ for image_name in random_images:
 # COMMAND ----------
 
 # MAGIC %md
-# MAGIC A continuación validamos que en efecto se hayan escrito 250 archivos csv en el contenedor de destino. Cada uno de estos archivos estará asociado a una imágen normalizada, y conformará el dataset sobre el cuál implementaremos modelos de Machine Learning.
+# MAGIC A continuación validamos que en efecto se hayan escrito 100 archivos csv en el contenedor de destino. Cada uno de estos archivos estará asociado a una imágen normalizada, y conformará el dataset sobre el cuál implementaremos modelos de Machine Learning.
 
 # COMMAND ----------
 
@@ -242,7 +242,7 @@ X.shape
 # COMMAND ----------
 
 # MAGIC %md
-# MAGIC Como podemos observar, X es un arreglo de la forma (**250**, 800, 1120, 3), esto significa que se tiene un conjunto de datos con **250** imágenes, donde cada imagen tiene una resolución de 800x1120 píxeles, y además, cada imagen tiene tres canales de color (rojo, verde y azul o RGB) por cada píxel.
+# MAGIC Como podemos observar, X es un arreglo de la forma (**100**, 800, 1120, 3), esto significa que se tiene un conjunto de datos con **100** imágenes, donde cada imagen tiene una resolución de 800x1120 píxeles, y además, cada imagen tiene tres canales de color (rojo, verde y azul o RGB) por cada píxel.
 
 # COMMAND ----------
 
